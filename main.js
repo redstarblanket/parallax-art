@@ -264,10 +264,57 @@ window.addEventListener('deviceorientation', function (event) {
 
 }); */
 
+var alpha = 0;
+var beta = 0;
+var total_x = 0;
+var total_y = 0;
+var max_offset = 2000;
+
+window.addEventListener("devicemotion", function(e) {
+
+	motion_button.classList.remove('visible');
+
+    alpha = e.rotationRate.alpha;
+    beta = e.rotationRate.beta;
+    
+    total_x += beta;
+    total_y += alpha;
+
+    if (Math.abs(total_x) > max_offset) {
+        total_x = max_offset * Math.sign(total_x);
+    }
+    if (Math.abs(total_y) > max_offset) {
+        total_y = max_offset * Math.sign(total_y);
+    }
+    
+    var x_offset = -total_y / 100;
+    var y_offset = total_x / 100;
+
+    motion.x = x_offset;
+    motion.y = y_offset;
+
+    if (window.orientation === 90) {
+    	motion.x = -x_offset;
+    	motion.y = -y_offset;
+    } else if (window.orientation === -90) {
+    	motion.x = x_offset;
+    	motion.y = y_offset;
+    } else if (window.orientation === 180) {
+    	motion.x = -y_offset;
+    	motion.y = x_offset;
+    } else if (window.orientation === 0) {
+    	motion.x = y_offset;
+    	motion.y = -x_offset;
+    }
+
+});
+
 // reset position of motion controls when device changes between portrait and landscape, etc.
 window.addEventListener('orientationchange', function (event) {
-    motion_initial.x = 0;
-    motion_initial.y = 0;
+    //motion_initial.x = 0;
+    //motion_initial.y = 0;
+    total_x = 0;
+	total_y = 0;
 });
 
 window.addEventListener('touchend', function () {
