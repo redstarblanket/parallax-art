@@ -86,8 +86,8 @@ function drawCanvas() {
     TWEEN.update();
 
     // calculate how much canvas should rotate
-    var rotate_x = (pointer.y * -0.07) + (motion.y * -.5);
-    var rotate_y = (pointer.x * 0.07) + (motion.x * .5);
+    var rotate_x = (pointer.y * -0.06) + (motion.y * -.5);
+    var rotate_y = (pointer.x * 0.06) + (motion.x * .5);
 
     var transform_string = "rotateX(" + rotate_x + "deg) rotateY(" + rotate_y + "deg)";
 
@@ -118,7 +118,7 @@ function drawCanvas() {
 function getOffset(layer) {
     // calculate the amount you want the layers to move based on touch or mouse input.
     // you can play with the touch_multiplier variable here. Depending on the size of your canvas you may want to turn it up or down.
-    var touch_multiplier = 0.1;
+    var touch_multiplier = 0.15;
     var touch_offset_x = pointer.x * layer.z_index * touch_multiplier;
     var touch_offset_y = pointer.y * layer.z_index * touch_multiplier;
 
