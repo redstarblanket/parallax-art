@@ -233,7 +233,7 @@ var motion = {
     y: 0
 };
 
-// listen to gyroscope events
+/*// listen to gyroscope events
 window.addEventListener('deviceorientation', function (event) {
     // if this is the first time through
     if (!motion_initial.x && !motion_initial.y) {
@@ -262,7 +262,7 @@ window.addEventListener('deviceorientation', function (event) {
         motion.y = -event.beta + motion_initial.x;
     }
 
-});
+}); */
 
 // reset position of motion controls when device changes between portrait and landscape, etc.
 window.addEventListener('orientationchange', function (event) {
