@@ -271,7 +271,6 @@ var total_y = 0;
 var max_offset = 2000;
 
 window.addEventListener("devicemotion", function(e) {
-
 	motion_button.classList.remove('visible');
 
     alpha = e.rotationRate.alpha;
@@ -313,7 +312,7 @@ window.addEventListener("devicemotion", function(e) {
 window.addEventListener('orientationchange', function (event) {
     //motion_initial.x = 0;
     //motion_initial.y = 0;
-    total_x = 0;
+	total_x = 0;
 	total_y = 0;
 });
 
