@@ -271,7 +271,6 @@ var total_y = 0;
 var max_offset = 2000;
 
 window.addEventListener("devicemotion", function(e) {
-	motion_button.classList.remove('visible');
 
     alpha = e.rotationRate.alpha;
     beta = e.rotationRate.beta;
