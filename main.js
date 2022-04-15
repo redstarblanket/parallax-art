@@ -86,8 +86,8 @@ function drawCanvas() {
     TWEEN.update();
 
     // calculate how much canvas should rotate
-    var rotate_x = (pointer.y * -0.15) + (motion.y * -.5);
-    var rotate_y = (pointer.x * 0.15) + (motion.x * .5);
+    var rotate_x = (pointer.y * -0.15) + (motion.y * -1.2);
+    var rotate_y = (pointer.x * 0.15) + (motion.x * 1.2);
 
     var transform_string = "rotateX(" + rotate_x + "deg) rotateY(" + rotate_y + "deg)";
 
@@ -122,7 +122,7 @@ function getOffset(layer) {
     var touch_offset_x = pointer.x * layer.z_index * touch_multiplier;
     var touch_offset_y = pointer.y * layer.z_index * touch_multiplier;
 
-    var motion_multiplier = 0.09;
+    var motion_multiplier = 3;
     var motion_offset_x = motion.x * layer.z_index * motion_multiplier;
     var motion_offset_y = motion.y * layer.z_index * motion_multiplier;
 
