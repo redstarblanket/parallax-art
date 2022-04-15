@@ -118,7 +118,7 @@ function drawCanvas() {
 function getOffset(layer) {
     // calculate the amount you want the layers to move based on touch or mouse input.
     // you can play with the touch_multiplier variable here. Depending on the size of your canvas you may want to turn it up or down.
-    var touch_multiplier = 0.15;
+    var touch_multiplier = 0.07;
     var touch_offset_x = pointer.x * layer.z_index * touch_multiplier;
     var touch_offset_y = pointer.y * layer.z_index * touch_multiplier;
 
