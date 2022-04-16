@@ -86,8 +86,8 @@ function drawCanvas() {
     TWEEN.update();
 
     // calculate how much canvas should rotate
-    var rotate_x = (pointer.y * -0.15) + (motion.y * -1.2);
-    var rotate_y = (pointer.x * 0.15) + (motion.x * 1.2);
+   // var rotate_x = (pointer.y * -0.15) + (motion.y * -1.2);
+    //var rotate_y = (pointer.x * 0.15) + (motion.x * 1.2);
 
     var transform_string = "rotateX(" + rotate_x + "deg) rotateY(" + rotate_y + "deg)";
 
@@ -251,16 +251,16 @@ window.addEventListener('deviceorientation', function (event) {
         motion.x = event.beta - motion_initial.x;
         motion.y = -event.gamma + motion_initial.y;
 
-    } else /*if*/ (window.orientation === -90) {
+    } else if (window.orientation === -90) {
         // device in landscape on right side
         motion.x = -event.beta + motion_initial.x;
         motion.y = event.gamma - motion.initial.y;
 
-    } /*else {
+    } else {
         // device upside down
         motion.x = -event.gamma + motion_initial.y;
         motion.y = -event.beta + motion_initial.x;
-    }*/
+    }
 
 }); 
 
