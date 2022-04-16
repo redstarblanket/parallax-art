@@ -86,8 +86,8 @@ function drawCanvas() {
     TWEEN.update();
 
     // calculate how much canvas should rotate
-   // var rotate_x = (pointer.y * -0.15) + (motion.y * -1.2);
-    //var rotate_y = (pointer.x * 0.15) + (motion.x * 1.2);
+    var rotate_x = (pointer.y * 1) + (motion.y * 1);
+    var rotate_y = (pointer.x * 1) + (motion.x * 1);
 
     var transform_string = "rotateX(" + rotate_x + "deg) rotateY(" + rotate_y + "deg)";
 
