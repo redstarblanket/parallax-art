@@ -122,7 +122,7 @@ function getOffset(layer) {
     var touch_offset_x = pointer.x * layer.z_index * touch_multiplier;
     var touch_offset_y = pointer.y * layer.z_index * touch_multiplier;
 
-    var motion_multiplier = .8;
+    var motion_multiplier = .65;
     var motion_offset_x = motion.x * layer.z_index * motion_multiplier;
     var motion_offset_y = motion.y * layer.z_index * motion_multiplier;
 
