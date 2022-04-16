@@ -122,7 +122,7 @@ function getOffset(layer) {
     var touch_offset_x = pointer.x * layer.z_index * touch_multiplier;
     var touch_offset_y = pointer.y * layer.z_index * touch_multiplier;
 
-    var motion_multiplier = 3;
+    var motion_multiplier = 2.5;
     var motion_offset_x = motion.x * layer.z_index * motion_multiplier;
     var motion_offset_y = motion.y * layer.z_index * motion_multiplier;
 
@@ -251,16 +251,16 @@ window.addEventListener('deviceorientation', function (event) {
         motion.x = event.beta - motion_initial.x;
         motion.y = -event.gamma + motion_initial.y;
 
-    } else if (window.orientation === -90) {
+    } else /*if*/ (window.orientation === -90) {
         // device in landscape on right side
         motion.x = -event.beta + motion_initial.x;
         motion.y = event.gamma - motion.initial.y;
 
-    } else {
+    } /*else {
         // device upside down
         motion.x = -event.gamma + motion_initial.y;
         motion.y = -event.beta + motion_initial.x;
-    }
+    }*/
 
 }); 
 
