@@ -233,7 +233,7 @@ var motion = {
     y: 0
 };
 
-// listen to gyroscope events
+// listen to gyroscope events - no longer needed
 /*window.addEventListener('deviceorientation', function (event) {
     // if this is the first time through
     if (!motion_initial.x && !motion_initial.y) {
