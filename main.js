@@ -86,8 +86,8 @@ function drawCanvas() {
     TWEEN.update();
 
     // calculate how much canvas should rotate
-    var rotate_x = (pointer.y * -0.1) + (motion.y * -.5);
-    var rotate_y = (pointer.x * 0.1) + (motion.x * .5);
+    var rotate_x = (pointer.y * -0.15) + (motion.y * -1.2);
+    var rotate_y = (pointer.x * 0.15) + (motion.x * 1.2);
 
     var transform_string = "rotateX(" + rotate_x + "deg) rotateY(" + rotate_y + "deg)";
 
@@ -234,7 +234,7 @@ var motion = {
 };
 
 // listen to gyroscope events
-window.addEventListener('deviceorientation', function (event) {
+/*window.addEventListener('deviceorientation', function (event) {
     // if this is the first time through
     if (!motion_initial.x && !motion_initial.y) {
         motion_initial.x = event.beta;
@@ -262,7 +262,7 @@ window.addEventListener('deviceorientation', function (event) {
         motion.y = -event.beta + motion_initial.x;
     }
 
-}); 
+}); */
 
 
 // reset position of motion controls when device changes between portrait and landscape, etc.
