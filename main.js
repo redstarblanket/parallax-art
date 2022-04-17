@@ -228,11 +228,6 @@ var motion_initial = {
     y: null
 };
 
-var motion = {
-    x: 0,
-    y: 0
-};
-
 // control rotation based on rotation rate
 var alpha = 0;
 var beta = 0;
@@ -278,9 +273,7 @@ window.addEventListener("devicemotion", function(e) {
 
 // reset position of motion controls when device changes between portrait and landscape, etc.
 window.addEventListener('orientationchange', function (event) {
-    //motion_initial.x = 0;
-    //motion_initial.y = 0;
-    total_x = 0;
+	total_x = 0;
 	total_y = 0;
 });
 
