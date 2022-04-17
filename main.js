@@ -233,41 +233,55 @@ var motion = {
     y: 0
 };
 
-// listen to gyroscope events
-window.addEventListener('deviceorientation', function (event) {
-    // if this is the first time through
-    if (!motion_initial.x && !motion_initial.y) {
-        motion_initial.x = event.beta;
-        motion_initial.y = event.gamma;
+// control rotation based on rotation rate
+var alpha = 0;
+var beta = 0;
+var total_x = 0;
+var total_y = 0;
+var max_offset = 2000;
+
+window.addEventListener("devicemotion", function(e) {
+   
+    alpha = e.rotationRate.alpha;
+    beta = e.rotationRate.beta;
+    
+    total_x += beta;
+    total_y += alpha;
+
+    if (Math.abs(total_x) > max_offset) {
+        total_x = max_offset * Math.sign(total_x);
     }
+    if (Math.abs(total_y) > max_offset) {
+        total_y = max_offset * Math.sign(total_y);
+    }
+    
+    var x_offset = -total_y / 80;
+    var y_offset = total_x / 80;
 
-    if (window.orientation === 0) {
-        // device in portrait orientation
-        motion.x = event.gamma - motion_initial.y;
-        motion.y = event.beta - motion_initial.x;
+    motion.x = x_offset;
+    motion.y = y_offset;
 
-    } else if (window.orientation === 90) {
-        // device in landscape on left side
-        motion.x = event.beta - motion_initial.x;
-        motion.y = -event.gamma + motion_initial.y;
-
+    if (window.orientation === 90) {
+    	motion.x = -x_offset;
+    	motion.y = y_offset;
     } else if (window.orientation === -90) {
-        // device in landscape on right side
-        motion.x = -event.beta + motion_initial.x;
-        motion.y = event.gamma - motion.initial.y;
-
-    } else {
-        // device upside down
-        motion.x = -event.gamma + motion_initial.y;
-        motion.y = -event.beta + motion_initial.x;
+    	motion.x = x_offset;
+    	motion.y = -y_offset;
+    } else if (window.orientation === 180) {
+    	motion.x = -y_offset;
+    	motion.y = -x_offset;
+    } else if (window.orientation === 0) {
+    	motion.x = y_offset;
+    	motion.y = x_offset;
     }
-
 });
 
 // reset position of motion controls when device changes between portrait and landscape, etc.
 window.addEventListener('orientationchange', function (event) {
-    motion_initial.x = 0;
-    motion_initial.y = 0;
+    //motion_initial.x = 0;
+    //motion_initial.y = 0;
+    total_x = 0;
+	total_y = 0;
 });
 
 window.addEventListener('touchend', function () {
