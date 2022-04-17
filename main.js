@@ -55,7 +55,7 @@ var layer_list = [
     {
         'image': konpeito,
         'src': 'layer5.png',
-        'z_index': 1.5,
+        'z_index': 1,
         'position': { x: 0, y: 0 },
         'blend': 'normal',
         'opacity': 1,
