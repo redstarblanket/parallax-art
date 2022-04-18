@@ -233,37 +233,6 @@ var motion = {
     y: 0
 };
 
-// listen to gyroscope events - no longer needed
-/*window.addEventListener('deviceorientation', function (event) {
-    // if this is the first time through
-    if (!motion_initial.x && !motion_initial.y) {
-        motion_initial.x = event.beta;
-        motion_initial.y = event.gamma;
-    }
-
-    if (window.orientation === 0) {
-        // device in portrait orientation
-        motion.x = event.gamma - motion_initial.y;
-        motion.y = event.beta - motion_initial.x;
-
-    } else if (window.orientation === 90) {
-        // device in landscape on left side
-        motion.x = event.beta - motion_initial.x;
-        motion.y = -event.gamma + motion_initial.y;
-
-    } else if (window.orientation === -90) {
-        // device in landscape on right side
-        motion.x = -event.beta + motion_initial.x;
-        motion.y = event.gamma - motion.initial.y;
-
-    } else {
-        // device upside down
-        motion.x = -event.gamma + motion_initial.y;
-        motion.y = -event.beta + motion_initial.x;
-    }
-
-}); */
-
 var alpha = 0;
 var beta = 0;
 var total_x = 0;
